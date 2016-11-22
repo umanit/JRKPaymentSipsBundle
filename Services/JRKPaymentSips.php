@@ -77,7 +77,12 @@ class JRKPaymentSips {
         }
 
         $attrbs["normal_return_url"] = "payment_response";
-        $attrbs["automatic_response_url"] = "payment_auto_response";
+        if (! array_key_exists("automatic_response_url", $attrbs)) {
+            $attrbs["automatic_response_url"] = "payment_auto_response";
+            $automatic_response_url_route = true;
+        } else {
+            $automatic_response_url_route = false;
+        }
         $attrbs["cancel_return_url"] = "payment_cancel";
         $attrbs["amount"]*=100;
 
@@ -89,7 +94,7 @@ class JRKPaymentSips {
         $parm .= $this->defset($attrbs,"pathfile");
         $parm .= $this->defset($attrbs,"normal_return_url",true);
         $parm .= $this->defset($attrbs,"cancel_return_url",true);
-        $parm .= $this->defset($attrbs,"automatic_response_url",true);
+        $parm .= $this->defset($attrbs,"automatic_response_url",$automatic_response_url_route);
         $parm .= $this->defset($attrbs,"language");
         $parm .= $this->defset($attrbs,"payment_means");
         $parm .= $this->defset($attrbs,"header_flag");
