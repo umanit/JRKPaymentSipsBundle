@@ -24,4 +24,3 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class JRKPaymentSipsBundle extends Bundle
 {
 }
-

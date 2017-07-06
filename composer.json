@@ -2,7 +2,15 @@
     "name": "jrk/paymentsips-bundle",
     "type": "symfony-bundle",
     "description": "paymentsips bundle for symfony2",
-    "keywords": ["jrk","paymentsips","sips","atos","payment","credit","card"],
+    "keywords": [
+        "jrk",
+        "paymentsips",
+        "sips",
+        "atos",
+        "payment",
+        "credit",
+        "card"
+    ],
     "homepage": "http://github.com/jreziga/JRKPaymentSipsBundle",
     "license": "GNU GPL v2",
     "authors": [
@@ -15,13 +23,15 @@
     "require": {
         "php": ">=5.3.2",
         "symfony/framework-bundle": "2.*",
-        "ext-curl":"*"
+        "ext-curl": "*"
     },
     "autoload": {
-        "psr-0": { "JRK\\PaymentSipsBundle": "" }
+        "psr-0": {
+            "JRK\\PaymentSipsBundle": ""
+        }
     },
     "target-dir": "JRK/PaymentSipsBundle",
-	"extra": {
+    "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
         }
