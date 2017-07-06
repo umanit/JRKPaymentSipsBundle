@@ -68,7 +68,7 @@ EOT
 
         fclose($file);
 
-        $output->writeln(sprintf('Pathfile generated', $path));
+        $output->writeln(sprintf('Pathfile generated: %s', $path));
     }
 
     public function mkpath($path)
@@ -77,9 +77,10 @@ EOT
         $targetFolder = "";
         foreach ($tree as $t) {
             $targetFolder .= $t;
-            if (!is_dir($targetFolder)) {
-                mkdir($targetFolder, 0755);
+            if (!is_dir($targetFolder) && false === @mkdir($targetFolder, 0755, true) && !is_dir($targetFolder)) {
+                throw new \RuntimeException(sprintf('Could not create directory "%s".', $targetFolder));
             }
+
             $targetFolder .= "/";
         }
     }
